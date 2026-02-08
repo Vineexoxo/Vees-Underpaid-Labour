@@ -24,5 +24,7 @@ dist-ssr
 *.sw?
 
 # Data files (if using file-based storage)
-data/
+# Note: src/data/ is NOT ignored - it contains pagesData.js which is needed
+# Only ignore root-level data/ folder if you create one
+/data/
 *.json.bak
