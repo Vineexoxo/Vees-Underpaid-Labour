@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Book from './components/Book';
 import FeedbackPage from './pages/FeedbackPage';
-import { pagesData } from './data/pagesData';
+import { pagesData } from './data/pagesData.js';
 
 function App() {
   return (
