@@ -168,12 +168,12 @@ const ValentinePage = ({ onYesClick, isNested = false }) => {
   };
 
   const containerClass = isNested 
-    ? "w-full h-full paper-texture bg-gradient-to-br from-romantic-pink-light via-romantic-cream-light to-romantic-pink flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 relative overflow-hidden"
+    ? "w-full h-full paper-texture bg-gradient-to-br from-romantic-pink-light via-romantic-cream-light to-romantic-pink flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 pb-28 sm:pb-0 relative overflow-hidden"
     : "absolute w-full h-full page-3d";
 
   const contentClass = isNested
     ? "w-full h-full relative"
-    : "absolute w-full h-full page-backface rounded-lg shadow-2xl overflow-hidden paper-texture bg-gradient-to-br from-romantic-pink-light via-romantic-cream-light to-romantic-pink flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 relative";
+    : "absolute w-full h-full page-backface rounded-lg shadow-2xl overflow-hidden paper-texture bg-gradient-to-br from-romantic-pink-light via-romantic-cream-light to-romantic-pink flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 pb-28 sm:pb-0 relative";
 
   return (
     <motion.div
@@ -212,9 +212,9 @@ const ValentinePage = ({ onYesClick, isNested = false }) => {
                 alt="Funny GIF or Image"
                 className="rounded-lg shadow-2xl border-4 border-white"
                 style={{ 
-                  width: 'clamp(80px, 12vw, 200px)',
+                  width: 'clamp(100px, 18vw, 240px)',
                   height: 'auto',
-                  maxWidth: '200px',
+                  maxWidth: '240px',
                   display: 'block'
                 }}
                 onError={(e) => {
@@ -302,7 +302,7 @@ const ValentinePage = ({ onYesClick, isNested = false }) => {
               
               {/* Feedback Form */}
               <motion.div
-                className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-white rounded-2xl shadow-2xl p-6 sm:p-8 md:p-10 max-w-md w-full mx-4"
+                className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-white rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 max-w-md w-full mx-4 max-h-[85vh] overflow-y-auto"
                 initial={{ opacity: 0, scale: 0.8, y: -50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.8, y: -50 }}
@@ -341,7 +341,7 @@ const ValentinePage = ({ onYesClick, isNested = false }) => {
                         value={feedback}
                         onChange={(e) => setFeedback(e.target.value)}
                         placeholder="Write your feedback here..."
-                        className="w-full h-32 sm:h-40 p-4 border-2 border-romantic-pink rounded-lg focus:outline-none focus:border-romantic-red font-inter text-sm sm:text-base resize-none"
+                        className="w-full h-24 sm:h-32 md:h-40 p-4 border-2 border-romantic-pink rounded-lg focus:outline-none focus:border-romantic-red font-inter text-sm sm:text-base resize-none"
                         autoFocus
                       />
                       

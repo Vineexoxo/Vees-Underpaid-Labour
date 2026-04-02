@@ -34,7 +34,7 @@ const Book = ({ pagesData }) => {
   };
 
   return (
-    <div className="w-screen h-screen overflow-hidden relative">
+    <div className="w-full h-screen overflow-hidden relative overflow-x-hidden">
       <div className="book-perspective w-full h-full">
         <div className="relative w-full h-full">
           {pagesData.map((page, index) => {
@@ -96,7 +96,7 @@ const Book = ({ pagesData }) => {
       </div>
       
       {/* Navigation Buttons */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-50">
+      <div className="absolute left-1/2 transform -translate-x-1/2 bottom-[calc(env(safe-area-inset-bottom)+0.5rem)] sm:bottom-8 z-50 px-4 w-full flex justify-center">
         <PageControls
           onNext={handleNext}
           onPrevious={handlePrevious}

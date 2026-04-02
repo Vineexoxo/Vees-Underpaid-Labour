@@ -134,7 +134,9 @@ const ConnectionsGame = ({ gameData }) => {
   }, [isGameComplete]);
 
   return (
-    <div className={`w-full h-full paper-texture ${gameData.backgroundColor} p-4 sm:p-6 md:p-8 lg:p-12 overflow-y-auto`}>
+    <div
+      className={`w-full h-full paper-texture ${gameData.backgroundColor} p-4 sm:p-6 md:p-8 lg:p-12 pb-28 sm:pb-6 md:pb-8 lg:pb-12 overflow-y-auto`}
+    >
       {/* Title */}
       <motion.div
         className="text-center mb-6 sm:mb-8"

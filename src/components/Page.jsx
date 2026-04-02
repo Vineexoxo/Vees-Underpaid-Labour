@@ -157,7 +157,7 @@ const PageSide = ({ sideData }) => {
 
   return (
     <div
-      className={`w-full h-full paper-texture ${sideData.backgroundColor} flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 relative`}
+      className={`w-full h-full paper-texture ${sideData.backgroundColor} flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 pb-28 sm:pb-0 relative`}
     >
       {/* Cloud/Bubble */}
       {sideData.cloudMessage && (
@@ -181,7 +181,7 @@ const PageSide = ({ sideData }) => {
       )}
 
       {sideData.imageURL && (
-        <div className="w-full h-3/4 mb-3 sm:mb-4 rounded-lg overflow-hidden shadow-lg bg-white relative z-10">
+        <div className="w-full h-[80%] sm:h-3/4 mb-2 sm:mb-4 rounded-lg overflow-hidden shadow-lg bg-white relative z-10">
           <img
             src={sideData.imageURL}
             alt="Scrapbook memory"
@@ -209,7 +209,7 @@ const PageSide = ({ sideData }) => {
       
       {sideData.quoteText && (
         <div className="w-full flex-1 flex flex-col items-center justify-center">
-          <p className="font-dancing text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-romantic-red-dark text-center mb-2 sm:mb-3 md:mb-4 px-2 sm:px-4">
+          <p className="font-dancing text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-romantic-red-dark text-center mb-1 sm:mb-2 md:mb-3 px-2 sm:px-4 leading-snug break-words">
             "{sideData.quoteText}"
           </p>
         </div>

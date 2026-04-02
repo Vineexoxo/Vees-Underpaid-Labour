@@ -2,7 +2,9 @@ import { motion } from 'framer-motion';
 
 const PhotoCollage = ({ collageData }) => {
   return (
-    <div className={`w-full h-full paper-texture ${collageData.backgroundColor} relative overflow-hidden`}>
+    <div
+      className={`w-full h-full paper-texture ${collageData.backgroundColor} relative overflow-hidden pb-28 sm:pb-0 px-2 sm:px-0`}
+    >
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         {/* Corner decorations */}
