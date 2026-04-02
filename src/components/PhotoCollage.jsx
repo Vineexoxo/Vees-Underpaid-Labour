@@ -1,9 +1,36 @@
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 const PhotoCollage = ({ collageData }) => {
+  // Move the quote boxes upward on small screens so they don't sit under bottom controls.
+  const [quoteShiftPx, setQuoteShiftPx] = useState(0);
+  const [imageShiftPx, setImageShiftPx] = useState(0);
+
+  useEffect(() => {
+    const update = () => {
+      const isMobile = window.innerWidth < 640;
+      // Always keep "bottom" quotes clear of the fixed Next/Previous controls.
+      const shift = isMobile ? Math.round(Math.min(120, window.innerHeight * 0.14)) : 220;
+      setQuoteShiftPx(shift);
+      // Push bottom-positioned images upward on phones so they don't cover quotes/text.
+      const imgShift = isMobile ? Math.round(Math.min(140, window.innerHeight * 0.09)) : 0;
+      setImageShiftPx(imgShift);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  const addTranslateY = (baseTransform, shouldShift) => {
+    if (!quoteShiftPx || !shouldShift) return baseTransform;
+    const cleaned = (baseTransform || '').trim();
+    const suffix = `translateY(-${quoteShiftPx}px)`;
+    return cleaned ? `${cleaned} ${suffix}` : suffix;
+  };
+
   return (
     <div
-      className={`w-full h-full paper-texture ${collageData.backgroundColor} relative overflow-hidden pb-28 sm:pb-0 px-2 sm:px-0`}
+      className={`w-full h-full paper-texture ${collageData.backgroundColor} relative overflow-y-auto overflow-x-hidden px-2 sm:px-0`}
     >
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
@@ -33,6 +60,7 @@ const PhotoCollage = ({ collageData }) => {
             ...photo.position,
             width: photo.position.width,
             zIndex: 5 + index,
+            transform: photo.position?.bottom ? `translateY(-${imageShiftPx}px)` : undefined,
           }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -81,14 +109,17 @@ const PhotoCollage = ({ collageData }) => {
       {collageData.quotes?.map((quote, index) => (
         <motion.div
           key={index}
-          className="absolute z-10"
-          style={quote.position}
+          className="absolute z-[3] pointer-events-none"
+          style={{
+            ...(quote.position || {}),
+            transform: addTranslateY(quote.position?.transform, !!quote.position?.bottom),
+          }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
         >
-          <div className="bg-white/90 backdrop-blur-sm px-4 py-3 rounded-lg shadow-lg border-2 border-romantic-red/30">
-            <p className={`font-dancing ${quote.fontSize || 'text-xl'} text-romantic-red-dark text-center whitespace-nowrap`}>
+          <div className="bg-white/90 backdrop-blur-sm px-4 py-3 rounded-lg shadow-lg border-2 border-romantic-red/30 max-w-[88vw]">
+            <p className={`font-dancing ${quote.fontSize || 'text-xl'} text-romantic-red-dark text-center whitespace-normal break-words leading-snug`}>
               "{quote.text}"
             </p>
           </div>
@@ -105,6 +136,9 @@ const PhotoCollage = ({ collageData }) => {
         transition={{ delay: 0.3, duration: 0.5 }}
       >
       </motion.div>
+
+      {/* Scroll buffer so bottom text can be revealed by scrolling */}
+      <div className="pointer-events-none h-[90vh] sm:h-[75vh] md:h-[55vh] lg:h-[45vh]" aria-hidden="true" />
 
     </div>
   );

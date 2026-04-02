@@ -157,7 +157,7 @@ const PageSide = ({ sideData }) => {
 
   return (
     <div
-      className={`w-full h-full paper-texture ${sideData.backgroundColor} flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 pb-28 sm:pb-0 relative`}
+      className={`w-full h-full paper-texture ${sideData.backgroundColor} flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 pb-40 sm:pb-0 relative`}
     >
       {/* Cloud/Bubble */}
       {sideData.cloudMessage && (

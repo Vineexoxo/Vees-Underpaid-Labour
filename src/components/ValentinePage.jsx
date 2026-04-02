@@ -168,12 +168,12 @@ const ValentinePage = ({ onYesClick, isNested = false }) => {
   };
 
   const containerClass = isNested 
-    ? "w-full h-full paper-texture bg-gradient-to-br from-romantic-pink-light via-romantic-cream-light to-romantic-pink flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 pb-28 sm:pb-0 relative overflow-hidden"
+    ? "w-full h-full paper-texture bg-gradient-to-br from-romantic-pink-light via-romantic-cream-light to-romantic-pink flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 pb-40 sm:pb-0 relative overflow-hidden"
     : "absolute w-full h-full page-3d";
 
   const contentClass = isNested
     ? "w-full h-full relative"
-    : "absolute w-full h-full page-backface rounded-lg shadow-2xl overflow-hidden paper-texture bg-gradient-to-br from-romantic-pink-light via-romantic-cream-light to-romantic-pink flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 pb-28 sm:pb-0 relative";
+    : "absolute w-full h-full page-backface rounded-lg shadow-2xl overflow-hidden paper-texture bg-gradient-to-br from-romantic-pink-light via-romantic-cream-light to-romantic-pink flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12 pb-40 sm:pb-0 relative";
 
   return (
     <motion.div
