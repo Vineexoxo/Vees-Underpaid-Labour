@@ -34,7 +34,7 @@ const Book = ({ pagesData }) => {
   };
 
   return (
-    <div className="w-full h-screen overflow-hidden relative overflow-x-hidden flex flex-col">
+    <div className="w-full h-[100dvh] overflow-hidden relative overflow-x-hidden flex flex-col">
       {/* Book viewport (takes remaining space). Controls below this won't overlap. */}
       <div className="flex-1 min-h-0">
         <div className="book-perspective w-full h-full">
@@ -99,7 +99,7 @@ const Book = ({ pagesData }) => {
       </div>
 
       {/* Navigation Controls (static, no overlay) */}
-      <div className="shrink-0 px-4 pb-[env(safe-area-inset-bottom)] flex justify-end w-full">
+      <div className="shrink-0 px-4 pb-[calc(env(safe-area-inset-bottom)+40px)] flex justify-end w-full">
         <PageControls
           onNext={handleNext}
           onPrevious={handlePrevious}

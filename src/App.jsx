@@ -10,7 +10,7 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="w-full h-screen overflow-hidden overflow-x-hidden">
+            <div className="w-full h-[100dvh] overflow-hidden overflow-x-hidden">
               <Book pagesData={pagesData} />
             </div>
           }
