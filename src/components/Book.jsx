@@ -99,7 +99,7 @@ const Book = ({ pagesData }) => {
       </div>
 
       {/* Navigation Controls (static, no overlay) */}
-      <div className="shrink-0 px-4 pb-[calc(env(safe-area-inset-bottom)+40px)] flex justify-end w-full">
+      <div className="shrink-0 px-4 pb-[env(safe-area-inset-bottom)] flex justify-end w-full">
         <PageControls
           onNext={handleNext}
           onPrevious={handlePrevious}
